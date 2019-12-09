@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2700185 on Thu Oct 24 18:45:48 MDT 2019
 # IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
-# Start of session at: Mon Dec  9 11:41:01 2019
-# Process ID: 20254
+# Start of session at: Mon Dec  9 12:56:45 2019
+# Process ID: 2811
 # Current directory: /HOME/s361591/VHDL_Exc3/VHDL_Exc3.runs/impl_1
 # Command line: vivado -log f.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source f.tcl -notrace
 # Log file: /HOME/s361591/VHDL_Exc3/VHDL_Exc3.runs/impl_1/f.vdi

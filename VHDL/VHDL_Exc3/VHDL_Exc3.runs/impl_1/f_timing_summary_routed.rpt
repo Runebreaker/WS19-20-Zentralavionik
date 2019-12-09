@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (lin64) Build 2700185 Thu Oct 24 18:45:48 MDT 2019
-| Date         : Mon Dec  9 12:00:28 2019
+| Date         : Mon Dec  9 13:20:04 2019
 | Host         : e40-09 running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_timing_summary -max_paths 10 -file f_timing_summary_routed.rpt -pb f_timing_summary_routed.pb -rpx f_timing_summary_routed.rpx -warn_on_violation
 | Design       : f
@@ -56,7 +56,7 @@ Table of Contents
 --------------------
  There are 18 register/latch pins with no clock driven by root clock pin: clock (HIGH)
 
- There are 11 register/latch pins with no clock driven by root clock pin: u1/clock1Hz_reg/Q (HIGH)
+ There are 38 register/latch pins with no clock driven by root clock pin: u1/clock1Hz_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -71,21 +71,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 47 pins that are not constrained for maximum delay. (HIGH)
+ There are 120 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There is 1 input port with no input delay specified. (HIGH)
+ There are 2 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 9 ports with no output delay specified. (HIGH)
+ There are 11 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 

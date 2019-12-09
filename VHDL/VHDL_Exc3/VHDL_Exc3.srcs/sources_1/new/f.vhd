@@ -64,6 +64,12 @@ signal K : std_logic_vector(0 to 7) := "01010001";
 signal empty : std_logic_vector(0 to 7) := "11111111";
 
 signal digit : integer range 0 to 3 := 0;
+signal clockmod : integer range 0 to 1000 := 0;
+
+signal digit1 : integer range 0 to 9 := 0;
+signal digit2 : integer range 0 to 9 := 0;
+signal digit3 : integer range 0 to 9 := 0;
+signal digit4 : integer range 0 to 9 := 0;
 
 signal newclk : std_logic;
 
@@ -72,7 +78,8 @@ u1: ClockExc port map(resetBtn=>rst, clock100MHz=>clock, clock1Hz=>newclk);
     process(digit, newclk, toggle, rst)
     begin
         if rising_edge(newclk) then
-            case digit is
+            if toggle = '0' then
+                case digit is
                 WHEN 0 =>
                     segments <= empty;
                     active <= "1110";
@@ -89,7 +96,137 @@ u1: ClockExc port map(resetBtn=>rst, clock100MHz=>clock, clock1Hz=>newclk);
                     segments <= empty;
                     active <= "0111";
                     segments <= K;
-            end case;
+                end case;
+            else
+            case digit is
+                WHEN 0 =>
+                    segments <= empty;
+                    active <= "1110";
+                    case digit4 is
+                        WHEN 0 =>
+                            segments <= zero;
+                        WHEN 1 =>
+                            segments <= one;
+                        WHEN 2 =>
+                            segments <= two;
+                        WHEN 3 =>
+                            segments <= three;
+                        WHEN 4 =>
+                            segments <= four;
+                        WHEN 5 =>
+                            segments <= five;
+                        WHEN 6 =>
+                            segments <= six;
+                        WHEN 7 =>
+                            segments <= seven;
+                        WHEN 8 =>
+                            segments <= eight;
+                        WHEN 9 =>
+                            segments <= nine;
+                    end case;
+                WHEN 1 =>
+                    segments <= empty;
+                    active <= "1101";
+                    case digit3 is
+                        WHEN 0 =>
+                            segments <= zero;
+                        WHEN 1 =>
+                            segments <= one;
+                        WHEN 2 =>
+                            segments <= two;
+                        WHEN 3 =>
+                            segments <= three;
+                        WHEN 4 =>
+                            segments <= four;
+                        WHEN 5 =>
+                            segments <= five;
+                        WHEN 6 =>
+                            segments <= six;
+                        WHEN 7 =>
+                            segments <= seven;
+                        WHEN 8 =>
+                            segments <= eight;
+                        WHEN 9 =>
+                            segments <= nine;
+                    end case;
+                WHEN 2 =>
+                    segments <= empty;
+                    active <= "1011";
+                    case digit2 is
+                        WHEN 0 =>
+                            segments <= zero;
+                        WHEN 1 =>
+                            segments <= one;
+                        WHEN 2 =>
+                            segments <= two;
+                        WHEN 3 =>
+                            segments <= three;
+                        WHEN 4 =>
+                            segments <= four;
+                        WHEN 5 =>
+                            segments <= five;
+                        WHEN 6 =>
+                            segments <= six;
+                        WHEN 7 =>
+                            segments <= seven;
+                        WHEN 8 =>
+                            segments <= eight;
+                        WHEN 9 =>
+                            segments <= nine;
+                    end case;
+                WHEN 3 =>
+                    segments <= empty;
+                    active <= "0111";
+                    case digit1 is
+                        WHEN 0 =>
+                            segments <= zero;
+                        WHEN 1 =>
+                            segments <= one;
+                        WHEN 2 =>
+                            segments <= two;
+                        WHEN 3 =>
+                            segments <= three;
+                        WHEN 4 =>
+                            segments <= four;
+                        WHEN 5 =>
+                            segments <= five;
+                        WHEN 6 =>
+                            segments <= six;
+                        WHEN 7 =>
+                            segments <= seven;
+                        WHEN 8 =>
+                            segments <= eight;
+                        WHEN 9 =>
+                            segments <= nine;
+                    end case;
+                end case;
+            
+                if clockmod >= 333 then
+                    clockmod <= 0;
+                    if digit1 = 9 then
+                        digit1 <= 0;
+                        if digit2 = 9 then
+                            digit2 <= 0;
+                            if digit3 = 9 then
+                                digit3 <= 0;
+                                if digit4 = 9 then
+                                    digit4 <= 0;
+                                else
+                                    digit4 <= digit4 + 1;
+                                end if;
+                            else
+                                digit3 <= digit3 + 1;
+                            end if;
+                        else
+                            digit2 <= digit2 + 1;
+                        end if;
+                    else
+                        digit1 <= digit1 + 1;
+                    end if;
+                else
+                    clockmod <= clockmod + 1;
+                end if;
+            end if;
         
             if digit = 3 then
                 digit <= 0;

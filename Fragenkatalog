@@ -1,0 +1,208 @@
+1. Boolesche Algebra
+	1.1. Erklären Sie die Stufen der "Bit-Fähigkeit". (3 Stufen)
+	1.2. Machen Sie eine Schaltung für eine bestimmte Anwendung
+		(maximal 4 Inputs, 4 Outputs)
+		Sie dürfen LUT oder Gatter benutzen.
+	1.3. Worauf müssen Informatiker achten, wenn Sie mit Elektrotechnikern zusammenarbeiten? Beispiel!
+		-> active high/low
+	
+	2. Boolesche Algebra & Schaltungen
+	2.1. Was ist TMR? Wozu? Wie? (Zeichnen für 1 Bit)
+	2.2. Machen Sie eine CMOS-Schaltung für AND oder OR.
+	2.3. Machen Sie eine Schaltung für einen vorgegebenen Ausdruck oder diese LUT.
+	2.4. Wie funktioniert ein PMOS & ein NMOS Transistor. (P wie Punkt)
+	2.5. Was ist ein Decoder, zeichnen Sie einen für 1 Input Bit & einen für 2 Bits.
+	2.6. Unterschied zwischen Decoder & Multiplexer, erklären & zeichnen. (Man kann auch einen Multiplexer mit einem eingebauten Decoder zeichnen.)
+	2.7. Erklären Sie (0, 1, X, Z, open collector, (R oder P))
+	
+	3. Register
+	3.1. Wo werden Register eingesetzt.
+		-> Als Pipeline, als Geschichts-Speicher (was war davor)
+	3.2. Unterschied RS, D, Gated und Register?
+		Zeichnen Sie ein Register. Vorgegeben ist ein R-S-Flipflop (oder andersrum)
+	3.3. Wie kann es passieren, dass (A & nicht A)=1 ergibt?
+		Wie nennt man dieses Phänomen (-> Spike).
+	3.4. Was sind die wichtigen Zeitangaben für ein Register (min. 4)
+		-> min. Periode, Delay, … 
+		mit Diagramm
+	
+	4. FPGA
+	4.1. Was ist Antifuse, Flash & SRAM Programmierspeicher für FPGAs?
+		Vor- & Nachteile?
+	4.2. Zeichnen Sie und erklären Sie den Entwicklungsprozess von FPGAs, warum 2x simulieren?
+	4.3. Zeichnen Sie und erklären Sie die Diamanten-Kreuzung, warum wird es benutzt?
+	-> 1. Damit  nicht die ganze Leitung (3cm lang) für nur ein Signal belegt wird (Verschwendung).
+		2. Transistoren können solche langen Leitungen nicht betreiben (Physik).
+	4.4. Warum kann man normale Transistoren im Chip nicht direkt zu IO Port verbinden? Wenn nicht wie dann?
+	4.5. Komponenten FPGA:
+		-> Leitungen, Logik (Register, CPU, Mul, Div, Rom, Ram), IO Port, Konfigurationsspeicher
+
+	5. Datenrepräsentation
+	5.1. Was ist das Zweierkomplement & wie funktioniert es?
+	5.2. Gegeben ist eine positive Zahl, wandeln Sie diese Zahl in eine negative Zahl im Zweierkomplement um. Was ist der Vorteil?
+		-> Subtraktion kann durch Addition ausgeführt werden.
+	5.3. Was ist Gray-Code und was ist der Vorteil gegenüber der klassischen Binärdarstellung?
+		-> schneller (nur 1-Bit wird je verändert)
+	5.4. Wie stellt man eine Fließkommazahl dar? Gegeben ist eine Dezimalzahl. Wandeln Sie diese Zahl in die Fließkommadarstellung um. (IEEE-754)
+	
+	6. Minimierung boolescher Funktionen
+	6.1. Bilden Sie aus folgender Tabelle die disjunktive & konjunktive Normalform.
+	6.2. Nenne drei Möglichkeiten eine boolesche Funktion zu minimieren. Wähle ein Verfahren und minimiere folgende Funktion nachvollziehbar.
+	6.3. Warum sind KV-Diagramme nur für eine begrenzte Zahl von Eingabevariablen geeignet? -> siehe Bsp. Mit 5 (chaotisch)
+	
+	7.  FPGA & VHDL
+	7.1. What are the 3 sections in VHDL code?
+	7.2. What are the differences between an FPGA & a Microprocessor?
+		-> parallel execution for FPGA
+		FPGA consumes more power
+		Microprocessor has reprogrammable software
+		FPGA is programmed hard
+	7.3. How is the VHDL code executed?
+		-> parallel execution
+	7.4. What is the purpose of the "process" Statement?
+	
+	8. VHDL
+	8.1. What is port-mapping?
+	8.2. How can you test the VHDL code?
+	8.3. What is the scope (Bereich) of variable & constant?
+	8.4. What is the state machine & describe the way to implement it.
+	
+	9. Laufzeiteffekte
+	9.1. Welche Arten von Hazards gibt es? Erklären Sie ihre Eigenschaften kurz.
+	9.2. Was besagt der Satz von Eichelberger?
+	9.3. Geg: Realisierung mit boolescher Funktion.
+		Stellen Sie den Strukturhazard fest & beheben Sie ihn.
+		
+	10. Arithmetik
+	10.1. Welche verschiedenen Typen von Addierern gibt es & worin unterscheiden sie sich?
+	10.2. Welche Arten von Zählerschaltungen gibt es? Was sind die Vor- und Nachteile? (synchroner/asynchroner Zähler)
+	10.3. Wie lässt sich ein Subtrahierer mittels Addierer realisieren? Erstellen Sie die Schaltung für einen 3-Bit-Subtrahierer.
+	
+	11. Embedded
+	11.1. Unterschied zwischen Embedded System & "normalen" Systemen (mind. 5 Unterschiede)
+	
+	12. Prozessoren & Prozesse
+	12.1. Welche Arten von Interrupts gibt es?
+		- I/O
+		- Timer: periodisch, Countdown, @
+		- Ausnahmen
+	12.2. Wie können mehrere Master den selben Bus benutzen?
+		-> Ein Arbeiter bekommt request & gibt nur ein Ack-Bit (Acknowledgment) pro Ausführung.
+	12.3. Erklären Sie, wie ein DMA funktioniert und warum er so gut ist. (mit internen Diagrammen)
+	12.4. Wie funktionieren Interrupts? Was muss die Interrupt Service Routine (ISR) machen?
+		-> Register kopieren, speichern, Kontextwechsel, Interrupt bearbeiten, Register wieder laden, Kontextwechsel
+		
+	13. Microcontroller
+	13.1. What is the difference between an Exception & an Interrupt?
+	Exception: from within the processor, unexpected
+	Interrupt: from outside, unexpected
+	13.2. Examples of Exceptions and Interrupts.
+	Exceptions:
+		- memory access violation
+		- overflows
+		- divide by 0
+		- Reset (highest priority!)
+	Interrupts:
+		- Communication (Bluetooth)
+		- UART, GPI, I2C, SPI Interrupts
+	13.3. Entry & exit sequence of an interrupt
+		-> context saving, Interrupt service routine, …
+	13.4. Disadvantages of polling.
+	13.5. What is mashability?
+		-> = disabling, priority handling
+	13.6. What is IVT (Interrupt Vector Table)
+		-> contains addresses of interrupt service routine
+	
+	14. Protocols: UART + I2C
+	14.1. Disadvantages of UART (=network ability)
+		-> limited speed, no networkability, too many wires (many GPIOs useless for controller)
+	14.2. Describe the transmission sequence of any character 'G'
+		-> example from lecture with 'G'
+	14.3. Advantages of I2C
+		-> networking possible, more speed, less wires
+	14.4. Explain the start & stop sequence of transmission
+		-> put SDA-line low
+		-> send the address of slave with read or write bit
+		-> send the data
+		-> put the SDA line high for stopping
+		
+	15. IO, DMA, Cache, MMU
+	15.1. Welches Problem kann beim Einsatz von Caches entstehen, wenn mehrere CPUs/DMA eingesetzt werden? Welche beiden grundsätzlichen Lösungsmöglichkeiten gibt es dafür? Welche Vor- und Nachteile haben diese? 
+	-> Inkonsistenz zwischen den Caches und dem Hauptspeicher
+	1. Automatisch durch Hardware: + automatisch - evtl. unerwartete Performance einbußen
+	2. Manuell durch Software: + Vermeidung von Redundanz, shared Data nur einmal in phys. Speicher - darf man nicht vergessen
+	15.2. Welche Möglichkeiten & Vorteile bietet eine MMU?
+		-> virtueller Speicher = mehr Speicher als real vorhanden
+		-> Sicherheit (Prozesse sind abgeschirmt)
+		-> versch. Zugriffsrechte auf versch. Speicherbereiche (read, write, execute)
+		-> Fragmentierung von physikalischem Speicher ist kein Problem
+		-> Vermeidung von Redundanz, shared data nur einmal im physikalischen Speicher
+	15.3. Erkläre den Ablauf eines DMA-Transfers.
+		- IO Komponente auf DMA einstellen
+		- DMA-Controller konfigurieren (lesen/schreiben, welche Speicheradressen, Adresse der IO Komponente, Länge des Transfers)
+		- DMA-Request von IO an DMA-Controller, DMA-Controller startet Transfer
+		- wiederhole bis Transferlänge erreicht ist
+		- Senden eines Interrupts an CPU
+	15.4. Unter welchen Kriterien wird ausgewählt was im Cache landet?
+		- temporär: Speicherstellen die kürzlich zugegriffen wurden
+		- lokal: Speicherstellen die nahe der kürzlich zugegriffenen liegen
+	15.5. Vorteile von DMA:
+		- Reduziert CPU-Auslastung
+		- Reduziert Interrupt-Last
+
+	16. Zustandsmaschinen
+	16.1. Welche Arten von Zustandsmaschinen / Automaten gibt es & worin unterscheiden sie sich?
+	16.2. Geg.: Beschreibung einer Zustandsmaschine.
+		Zeichnen / entwerfen Sie den Automatengraphen.
+	16.3. Geg: Automatengraph. Vereinfachen Sie den Graphen so weit wie möglich.
+	
+	17. Akkus & Energie
+	17.1. Erklären Sie den C-Wert von Akkus mit einem Beispiel.
+		Warum ist dieser Wert wichtig? Wozu ist er angegeben?
+	17.2. Erklären Sie vier elektrische Energiequellen in Flugzeugen.
+		Wann werden Sie benutzt? (State Diagramm)
+	17.3. Vorteile / Nachteile Lithium - Ionen Akkus:
+		+ Spannung bleibt konstant bis Ende
+		+ hohe Energiedichte
+		+ leicht
+		- auch ohne zugeführtes O2 brennbar
+		- leicht brennbar
+
+	18. Analogtechnik (passiv)
+	18.1. Zeichnen Sie die Schaltung für diese Funktion (+, int, diff, *)
+	18.2. Vergleichen Sie digitale und analoge Signale.
+		a. Zeit & Wert - Bereich (zeitdiskret, wertdiskret, etc.)
+		b. Rauschen bei  analogen Signalen
+		c. Was passiert bei langen Leitungen (Antenne -> Rauschen), Übersprechen
+	18.3. Wann ist es sinnvoll Analogtechnik anstatt Digitaltechnik zu verwenden?
+		a. für sicherheitskritische Anwendungen "Fail Safe"
+		b. Sensoren und Aktuatoren müssen analoge Werte bearbeiten.
+			i. Die Physik ist kontinuierlich und aus physikalischen Werten bekommt man kontinuierliche (analoge) Signale (z.B. Spannung)
+	18.4. Welche Eigenschaft soll mein Spannungs- und Strommessgerät haben, um die Messung wenig zu beeinflussen.
+		a. Spannung: Widerstand sehr hoch.
+		b. Strom: Widerstand sehr niedrig. 
+	
+	19. Analogtechnik & Operationsverstärker
+	19.1. Machen Sie eine Schaltung um analoge Signale zu speichern. Worauf muss man achten?
+		-> Das Signal geht mit der Zeit verloren (Kondensator entlädt sich)
+		-> Je größer Kondensator, desto besser für Speicherung (längere Entladezeit)
+	19.2. Zeichnen Sie mit Operationsverstärker folgende Funktion:
+		+, -, *, d/dt, integral, exp, ln, …
+	19.3. Machen Sie eine Schaltung um diese Differentialgleichung zu simulieren.
+		! Achten Sie auf + & - & Inverter etc.
+		! Achtung: immer negative Rückkopplung nehmen.
+	
+	20. Analogtechnik D/A
+	20.1. Wie erzeugt man einen Elektromotor, der sich in beide Richtung (vorwärts/rückwärts) drehen kann?
+	Bitte mit Diagramm & Erklärung:
+	-> H-Bridge: alle Funktionen erklären
+		- Nach rechts
+		- Nach links
+		- Bremse
+		- Puff
+	20.2. Zeichnen Sie einen D/A Konverter für 5 Bits mit Dimensionierung der Widerstände (nur positive Werte)
+		-> Werte der Widerstände
+		-> ! Wegbleiben von 10 Ohm & 10^8 Ohm => großer Berechnungsfehler an diesen beiden Extremen
+	20.3. Nachteile von PWM bei Hi-Fi-Anlagen. Wo ist PWM von Vorteil & warum?
+	-> - viel Fidelity: HD-Audio
+	-> + viel Power (Konzert, Motoren)
